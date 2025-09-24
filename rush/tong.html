@@ -1,93 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Profile Card</title>
-  </head>
-  <body style="margin: 0px; font-family: Arial, sans-serif;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile Card</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
 
-    <div style="background-color: #333; overflow: hidden;">
-    <a href="home.html" style="float: left; display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Home</a>
-    <a href="Tong.html" style="float: left; display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Tong page</a>
-    <a href="Jane.html" style="float: left; display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Jane page</a>
-  </div>
+    /* Navigation Bar */
+    header {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      padding: 15px 0;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
 
-    <div style="width: 100%; height: 100%;">
-      <h1 style="text-align: center;">User Profile Card</h1>
+    header a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-block;
+      position: relative;
+      transition: color 0.3s ease;
+    }
 
-      <div style="
-        margin-left: auto;
-        margin-right: auto;
-        width: 500px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        text-align: center;
-      ">
-        <img
-          src="te.webp"
-          width="200"
-          alt="Profile"
-        />
+    /* Hover effect with underline animation */
+    header a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      bottom: 8px;
+      left: 50%;
+      background-color: #ffde59;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
 
-        <div style="padding: 5px;">
-          <table width="100%">
-            <tr>
-              <td>Tong</td>
-            </tr>
-            <tr>
-              <td>
-                <br />
-                <span style="font-size: 26px; font-weight: bold;">TAKSAPRON JAROENKAEW</span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <br />
-                <span style="color: gray;">age 19 :</span>
-                <p>Currently studying at King Mongkut's Institute of Technology Ladkrabang</p>
-                <p>afdafdasdfas</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <br />
-                <span style="font-weight: 300;">42 BANKKOK</span>
-              </td>
-            </tr>
-            <tr>
-             <td style="padding-top: 10px;">
-                <a href="https://www.facebook.com/share/1BL3MqBr2C/?mibextid=wwXIfr"><img
-                  src="https://i.pinimg.com/736x/4a/c3/2f/4ac32f183def3d621affe36a98375571.jpg"
-                  width="20"
-                  alt="Facebook"
-                /></a>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/769px-Instagram-Icon.png"
-                  width="20"
-                  alt="Instagram"
-                />
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png"
-                  width="20"
-                  alt="LINE"
-                />
-              </td>
-            </tr>
-          </table>
-        </div>
+    header a:hover {
+      color: #ffde59;
+    }
 
-        <div style="background-color: #000; color: #fff; padding: 10px;">
-          <a
-            href="https://github.com/Janrainjerr"
-            target="_blank"
-            style="color: #fff; text-decoration: none;"
-          >
-            Contact
-          </a>
-        </div>
-      </div>
+    header a:hover::after {
+      width: 60%;
+    }
+
+    h1 {
+      margin-top: 100px;
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+    }
+
+    /* Profile Card */
+    .profile-card {
+      background-color: white;
+      width: 90%;
+      max-width: 500px;
+      margin: 40px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Banner background */
+    .banner {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      height: 180px;
+    }
+
+    /* Profile picture */
+    .profile-card img.profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      object-fit: cover;
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Adjust info padding so text doesn't overlap */
+    .info {
+      padding: 150px 20px 20px; /* more top padding to fit bigger picture */
+    }
+
+    .info h2 {
+      font-size: 26px;
+      margin: 10px 0;
+    }
+
+    .info p {
+      font-size: 15px;
+      color: #666;
+      margin: 6px 0;
+    }
+
+    .skills {
+      background-color: #f1f1f1;
+      padding: 8px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    /* Social links */
+    .social-links {
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .social-links img {
+      width: 40px;
+      height: 40px;
+      margin: 8px;
+      border-radius: 8px;
+      display: inline-block;
+      vertical-align: middle;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Contact button */
+    .contact-button {
+      background-color: #333;
+      color: white;
+      padding: 12px 25px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-button:hover {
+      background-color: #575757;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <a href="home.html">Home</a>
+    <a href="tong.html">Tong Page</a>
+    <a href="jane.html">Jane Page</a>
+  </header>
+
+  <h1>User Profile Card</h1>
+
+  <div class="profile-card">
+    <div class="banner"></div>
+    <img src="tong.jpg" alt="Profile Picture" class="profile-pic"/>
+
+    <div class="info">
+      <h2>TAKSAPRON JAROENKAEW</h2>
+      <p><strong>Age:</strong> 19</p>
+      <p><strong>Study at:</strong> KMITL Business School</p>
+      <p class="skills">Skills: Teamwork, Adaptability</p>
+      <p><strong>Location:</strong> 42 BANGKOK</p>
+      <p><strong>Email:</strong> 68100062@kmitl.ac.th</p>
+      <p><strong>Phone:</strong> 0948650932</p>
+      <p><strong>Hobbies:</strong> Coding, Reading, wacth a film</p>
     </div>
 
-  </body>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/1BP3idzSox/?mibextid=wwXIfr" target="_blank">
+        <img src="Facebook.png" alt="Facebook"/>
+      </a>
+      
+      <a href="https://www.instagram.com/tsp__tong?igsh=MW9oOGZ2bmV4Mmw1YQ%3D%3D&utm_source=qr" target="_blank">
+        <img src="instagram.png" alt="LinkedIn"/>
+      </a>
+    </div>
+
+  </div>
+
+</body>
 </html>

@@ -1,93 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Profile Card</title>
-  </head>
-  <body style="margin: 0px; font-family: Arial, sans-serif;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile Card</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
 
-    <div style="background-color: #333; overflow: hidden;">
-    <a href="home.html" style="float: left; display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Home</a>
-    <a href="Tong.html" style="float: left; display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Tong page</a>
-    <a href="Jane.html" style="float: left; display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Jane page</a>
-  </div>
+    /* Navigation Bar */
+    header {
+      background: linear-gradient(90deg, #6a11cb, #020f25);
+      padding: 15px 0;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
 
-    <div style="width: 100%; height: 100%;">
-      <h1 style="text-align: center;">User Profile Card</h1>
+    header a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-block;
+      position: relative;
+      transition: color 0.3s ease;
+    }
 
-      <div style="
-        margin-left: auto;
-        margin-right: auto;
-        width: 500px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        text-align: center;
-      ">
-        <img
-          src="https://cdn.discordapp.com/attachments/1419885192847294628/1420311486378545152/IMG_0723.jpg?ex=68d4efa6&is=68d39e26&hm=28c62c9390d9883425a502f9ee9b6056a23e9935259e5ecf20a1323ff01d0102"
-          width="200"
-          alt="Profile"
-        />
+    /* Hover effect with underline animation */
+    header a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      bottom: 8px;
+      left: 50%;
+      background-color: #ffde59;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
 
-        <div style="padding: 5px;">
-          <table width="100%">
-            <tr>
-              <td>Jane</td>
-            </tr>
-            <tr>
-              <td>
-                <br />
-                <span style="font-size: 26px; font-weight: bold;">SASITHORN BANGPRASERT</span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <br />
-                <span style="color: gray;">age 18 :</span>
-                <p>adfsasdfasd</p>
-                <p>afdafdasdfas</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <br />
-                <span style="font-weight: 300;">42Paris</span>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding-top: 10px;">
-                <img
-                  src="https://i.pinimg.com/736x/4a/c3/2f/4ac32f183def3d621affe36a98375571.jpg"
-                  width="20"
-                  alt="Facebook"
-                />
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/769px-Instagram-Icon.png"
-                  width="20"
-                  alt="Instagram"
-                />         
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png"
-                  width="20"
-                  alt="LINE"
-                />
-              </td>
-            </tr>
-          </table>
-        </div>
+    header a:hover {
+      color: #ffde59;
+    }
 
-        <div style="background-color: #000; color: #fff; padding: 10px;">
-          <a
-            href="https://github.com/Janrainjerr"
-            target="_blank"
-            style="color: #fff; text-decoration: none;"
-          >
-            Contact
-          </a>
-        </div>
-      </div>
+    header a:hover::after {
+      width: 60%;
+    }
+
+    h1 {
+      margin-top: 100px;
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+    }
+
+    /* Profile Card */
+    .profile-card {
+      background-color: white;
+      width: 90%;
+      max-width: 500px;
+      margin: 40px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Banner background */
+    .banner {
+      background: linear-gradient(135deg, #6a11cb, #020f25);
+      height: 150px;
+    }
+
+    /* Profile picture */
+    .profile-card img.profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      object-fit: cover;
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Adjust info padding so text doesn't overlap */
+    .info {
+      padding: 140px 20px 20px;
+    }
+
+    .info h2 {
+      font-size: 26px;
+      margin: 10px 0;
+    }
+
+    .info p {
+      font-size: 15px;
+      color: #666;
+      margin: 6px 0;
+    }
+
+    .skills {
+      background-color: #f1f1f1;
+      padding: 8px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    /* Social links */
+    .social-links {
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .social-links img {
+      width: 40px;
+      height: 40px;
+      margin: 8px;
+      border-radius: 8px;
+      display: inline-block;
+      vertical-align: middle;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Contact button */
+    .contact-button {
+      background-color: #333;
+      color: white;
+      padding: 12px 25px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-button:hover {
+      background-color: #575757;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <a href="home.html">Home</a>
+    <a href="tong.html">Tong Page</a>
+    <a href="jane.html">Jane Page</a>
+  </header>
+
+  <h1>User Profile Card</h1>
+
+  <div class="profile-card">
+    <div class="banner"></div>
+    <img src="jane.jpg" alt="Profile Picture" class="profile-pic"/>
+
+    <div class="info">
+      <h2>SASITHORN BANGPRASERT</h2>
+      <p><strong>Age:</strong> 18</p>
+      <p><strong>Study at:</strong> KMITL Business School</p>
+      <p class="skills">Skills: Teamwork, Adaptability</p>
+      <p><strong>Location:</strong> 42 BANGKOK</p>
+      <p><strong>Email:</strong> 68100137@kmitl.ac.th</p>
+      <p><strong>Phone:</strong> 0628017314</p>
+      <p><strong>Hobbies:</strong> Coding, Reading, lisen to music</p>
     </div>
 
-  </body>
+    <div class="social-links">
+      <a href="https://www.facebook.com/jane.sasithorn.2025?" target="_blank">
+        <img src="Facebook.png" alt="Facebook"/>
+    
+      </a>
+              <a href="https://www.instagram.com/janenerly?igsh=OHdxdjI5ZWt1anAz&utm_source=qr" target="_blank">
+        <img src="instagram.png" alt="LinkedIn"/
+      </a>
+    </div>
+  </div>
+
+</body>
 </html>

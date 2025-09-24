@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Main Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+      color: white;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      overflow: hidden;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      bottom: 8px;
+      left: 50%;
+      background-color: #fff;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar a:hover {
+      color: #ffde59;
+    }
+
+    .navbar a:hover::after {
+      width: 50%;
+    }
+
+    /* Content */
+    .content {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+
+    /* Flex container for Tong + Jane */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px; /* bigger card */
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;   /* taller image */
+      object-fit: cover;
+      border-radius: 15px; /* match card edges */
+      margin-bottom: 15px;
+    }
+
+    .card a {
+      display: block;
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #ffde59;
+      margin-top: 10px;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="home.html">Home</a>
+    <a href="tong.html">Tong Page</a>
+    <a href="jane.html">Jane Page</a>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <h1>Home</h1>
+    <p>Welcome to the Home page ✨</p>
+
+    <!-- Tong and Jane cards side by side -->
+    <div class="cards">
+      <div class="card">
+        <a href="tong.html">
+          <img src="tong.jpg" alt="Tong">
+        </a>
+        <a href="tong.html">TONG PAGE</a>
+      </div>
+
+      <div class="card">
+        <a href="jane.html">
+          <img src="jane.jpg" alt="Jane">
+        </a>
+        <a href="jane.html">JANE PAGE</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
